@@ -30,8 +30,10 @@ Bitmap font contains japanese characters
 - http://doc.tir.ne.jp/devel/clan/libgdx#bitmapfont にある、
   各種のチューニングが行われている為、快適に日本語表示が可能です。
 
-- ライセンスは元のM+フォントと同様とします。
-    - http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index.html#license
+- 実際のフォントの見た目については、
+  https://raw.github.com/ayamada/mplus-1mn-medium-16-fnt-tir/master/mp1mnm16tir.png
+  を普通に画像ビューアで開いて確認してください。
+    - 背景透過で文字色は白なので、確認の際は背景を黒系にしてください。
 
 
 ## 使い方
@@ -49,11 +51,10 @@ Bitmap font contains japanese characters
         - jis1の方にある壺は「壷」で、こちらも残してある(将来は統合するかも)
 
 
-## 文字の抜け、ミス等を発見したら
+## License
 
-- githubのissueより連絡ください。日本語でokです。
-    - ただし、文字の追加要望については、テクスチャの空き領域の残りが少ない為、
-      ayamadaによる利用頻度判断によっては追加を断る場合があります。
+- ライセンスは元のM+フォントと同様とします。
+    - http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index.html#license
 
 
 ## おねがい
@@ -66,6 +67,15 @@ Bitmap font contains japanese characters
   明記してもらえるとうれしいです。明記する場所はスタッフロール等で構いません。
     - これはあくまで「おねがい」であり、無視しても別にペナルティ等はありません
       (ayamadaからの心証は悪くなるかも知れませんが)。
+
+
+## 文字の抜け、ミス等を発見したら
+
+- githubのissueより連絡ください。日本語でokです。
+    - ただし、文字の追加要望については、テクスチャの空き領域の残りが少ない為、
+      ayamadaによる利用頻度判断によっては追加を断る場合があります。
+        - その場合は自分で勝手に追加して利用してもらって何も問題ありません。
+          リポジトリからのfork等でもokです。
 
 
 ## TODO
