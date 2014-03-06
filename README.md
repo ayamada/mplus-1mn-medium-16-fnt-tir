@@ -8,7 +8,7 @@ Bitmap font contains japanese characters
 
 ## これは何？
 
-- 多くのゲーム系ライブラリ/エンジンで採用されている、
+- 一部のゲーム系ライブラリ/エンジンで採用されている、
   「fnt」形式のビットマップフォントです。
     - 「fnt」形式のフォントについては、ayamadaがまとめた文書が
       http://doc.tir.ne.jp/devel/clan/libgdx#bitmapfont にあります。
