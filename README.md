@@ -16,7 +16,7 @@ Bitmap font contains japanese characters
 
 ## どんなフォント？
 
-- [M+ OUTLINE FONTS](http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index.html)の「M+ 1mn medium」をベースにしています。
+- [M+ OUTLINE FONTS](http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index.html)の「M+ 1mn medium」をビットマップ化して生成しています。
 
 - 半角8x16、全角16x16の等幅フォントです。
     - Distance field処理済の為、拡大縮小しても綺麗に表示されます。
