@@ -1,3 +1,6 @@
+<div align="center"><img src="https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/ss.png" /></div>
+
+
 # mplus-1mn-medium-16-fnt-tir
 
 Bitmap font contains japanese characters
@@ -24,6 +27,7 @@ Bitmap font contains japanese characters
 
 - jis1の範囲の文字を含み、更にayamadaが必要に応じて取捨選択を行っています。
     - 詳細な範囲については後述します。
+    - 半角カナは含めていません。
 
 - 1024x1024のテクスチャになっています。
 
@@ -81,6 +85,9 @@ Bitmap font contains japanese characters
 ## TODO
 
 - ゲームでよく使う、ハート等のutf-8記号文字の一部を追加する予定
+- 以下を含めるかどうか検討中
+    - 「薔薇」
+    - 憂「鬱」
 
 
 ## 更新履歴
