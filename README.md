@@ -31,9 +31,9 @@ Bitmap font contains japanese characters
   各種のチューニングが行われている為、快適に日本語表示が可能です。
 
 - 実際のフォントの見た目については、
-  https://raw.github.com/ayamada/mplus-1mn-medium-16-fnt-tir/master/mp1mnm16tir.png
+  [mp1mnm16tir.png](https://raw.github.com/ayamada/mplus-1mn-medium-16-fnt-tir/master/mp1mnm16tir.png)
   を普通に画像ビューアで開いて確認してください。
-    - 背景透過で文字色は白なので、確認の際は背景を黒系にしてください。
+    - 背景透過で文字色が白なので、確認の際は背景を黒系にしてください。
 
 
 ## 使い方
