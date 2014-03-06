@@ -67,7 +67,8 @@ Bitmap font contains japanese characters
   もしくは
   [githubのプロジェクトページ](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir)
   にリンクを貼るか、「利用フォント」として「mplus-1mn-medium-16-fnt-tir」を
-  明記してもらえるとうれしいです。明記する場所はスタッフロール等で構いません。
+  明記してもらえるとうれしいです。明記する場所はスタッフロール等に限らず、
+  どこでも構いません(目立たない片隅で良いです)。
     - これはあくまで「おねがい」であり、無視しても別にペナルティ等はありません
       (ayamadaからの心証は悪くなるかも知れませんが)。
 
