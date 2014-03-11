@@ -100,7 +100,7 @@ Bitmap font contains japanese characters
     - githubにて公開開始
 
 - 0.0.0 : 2013/??/??
-    - utf-8の「￣」(全角トップバー)が正しく割り当てられていない問題を修正
+    - utf-8の「￣」(65507の`FULLWIDTH MACRON`)が不正だったのを修正
     - 罫線回りのサイズがおかしかったのを修正
     - 「壺」追加
 
