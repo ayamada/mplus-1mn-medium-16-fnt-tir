@@ -87,6 +87,7 @@ Bitmap font contains japanese characters
 - ゲームでよく使う、utf-8記号文字の一部を追加する予定
     - とりあえずハート系は追加した。あとどれを入れるべきか検討中
 - 「壺」と「壷」を、「壺」に統一すべきか検討
+- http://d.hatena.ne.jp/y-kawaz/20101112/1289554290 の置換表を適用
 
 
 ## 更新履歴
