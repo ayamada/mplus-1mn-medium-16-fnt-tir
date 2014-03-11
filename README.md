@@ -19,11 +19,14 @@ Bitmap font contains japanese characters
 - [M+ OUTLINE FONTS](http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index.html)の「M+ 1mn medium」をビットマップ化して生成しています。
 
 - 半角8x16、全角16x16の等幅フォントです。
-    - Distance field処理済の為、拡大しても綺麗に表示されます。
-        - Distance fieldの詳細についてはぐぐってください。
-          「とりあえず文字が綺麗に表示されるもの」という理解でokです。
     - 文字領域としては間違いなく上記通りの等幅ですが、領域をはみ出して
       描画する文字が一部あります(罫線および一部のアルファベット等)。
+
+- Distance field処理済の為、拡大した際もビットマップフォントとは思えないぐらい
+  綺麗に表示されます。
+    - Distance fieldの詳細についてはぐぐってください。
+      「とりあえず拡大時に文字が綺麗に表示されるもの」という理解でokです。
+    - filterがNearestの場合は微妙です。Linear以上推奨です。
 
 - いわゆるJIS第一水準の範囲の文字を含み、更にayamadaが必要に応じて取捨選択を行っています。
     - 詳細な範囲については後述します。
