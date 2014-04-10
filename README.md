@@ -26,7 +26,7 @@ Bitmap font contains japanese characters
   綺麗に表示されます。
     - Distance fieldの詳細についてはぐぐってください。
       「とりあえず拡大時に文字が綺麗に表示されるもの」という理解でokです。
-    - filterがNearestの場合は微妙です。Linear以上推奨です。
+    - filterがNearestの場合は微妙です。Linear推奨です。
 
 - いわゆるJIS第一水準の範囲の文字を含み、更にayamadaが必要に応じて取捨選択を行っています。
     - 詳細な範囲については後述します。
@@ -57,43 +57,43 @@ Bitmap font contains japanese characters
     - いわゆるJIS第一水準の範囲に追加分を加えています。追加分は時系列順に、末尾に追加されていきます。
 
 
-## License
-
-- ライセンスは元のM+フォントと同様とします。
-    - http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index.html#license
-
-
-## おねがい
-
-- このフォントを利用して何かを作った場合、
-  [vnctstサイト内の紹介ページ](http://vnctst.tir.jp/ja/materials/mplus-1mn-medium-16-fnt-tir.html)
-  もしくは
-  [githubのプロジェクトページ](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir)
-  にリンクを貼るか、「利用フォント」として「mplus-1mn-medium-16-fnt-tir」を
-  明記してもらえるとうれしいです(目立たない片隅で良いです)。
-    - これはあくまで「おねがい」であり無視しても別にペナルティ等はありません。
-    - ちなみにこのおねがいの目的は、その明記を見た何者かによって、
-      ayamadaへと何らかの仕事依頼が来る可能性が得られる事を願ってのものです。
-
-
 ## 文字の抜け、ミス等を発見したら
 
-- githubのissueより連絡ください。日本語でokです。
+- githubの
+  [Issues](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/issues)
+  より連絡ください。日本語でokです。
     - ただし、文字の追加要望については、テクスチャの空き領域の残りが少ない為、
       ayamadaによる利用頻度判断によっては追加を断る場合があります。
         - その場合は自分で勝手に追加して利用してもらって何も問題ありません。
           リポジトリからのfork等でもokです。
+- ayamadaは
+  [libgdx](http://libgdx.badlogicgames.com/)
+  にて表示の動作確認を行っています。
+  `libgdx`以外のゲームエンジン等では確認を行っていない為、
+  もし他のゲームエンジン等にて問題があれば、
+  こちらもIssuesにてフィードバックをいただけると有り難いです。
+
+
+## NOTE
+
+この項目は、過去に検討した内容について記述します。
+
+- 「×÷」が半角幅だが、全角幅に変更せず、このままにする事にした
+    - 当初は問答無用で全角幅にするつもりだったが、半角幅の方が見栄えが良い
+        - というかM+側で半角幅として作成されてるようだ
+    - 「＋－」とは全角幅なので統一は取れてない。
+      が「+-」は半角幅なので統一が取れている。
+    - よって、このままにする事に
+
+- 「壺」と「壷」を、「壺」に統一すべきか検討
+    - とりあえず今は別々でよいという結論に。
+      本格的にテクスチャの残り領域がなくなってから再度検討する。
 
 
 ## TODO
 
-- 「×÷」が半角幅なのを全角幅にするか検討する
-    - 当初は問答無用で全角幅にするつもりだったが、半角幅の方が見栄えが良い
-        - というかM+側で半角幅として作成されてるようだ
-    - しかし「＋－」は全角幅なので統一は取れてない
 - ゲームでよく使う、utf-8記号文字の一部を追加する予定
     - とりあえずハート系は追加した。あとどれを入れるべきか検討中
-- 「壺」と「壷」を、「壺」に統一すべきか検討
 - http://d.hatena.ne.jp/y-kawaz/20101112/1289554290 の置換表を適用
 
 
@@ -111,6 +111,12 @@ Bitmap font contains japanese characters
     - utf-8の「￣」(65507の`FULLWIDTH MACRON`)が不正だったのを修正
     - 罫線回りのサイズがおかしかったのを修正
     - 「壺」追加
+
+
+## License
+
+- ライセンスは元のM+フォントと同様とします。
+    - http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index.html#license
 
 
 
