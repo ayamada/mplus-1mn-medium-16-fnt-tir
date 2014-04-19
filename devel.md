@@ -43,7 +43,7 @@ page1-misc.chars (ソースファイル)
 ↓ ↓
 ↓ kanji.tally
 ↓ ↓
-↓ 8500カウント以上とそれ以外で、二つに分割する
+↓ 8500カウント以上と、その残りの、二つに分割する
 ↓ (ここが1024x1024に収まるギリギリのライン)
 ↓ ↓                 ↓
 ↓ kanji-major.tally  kanji-minor.tally
