@@ -156,9 +156,9 @@ page1.txt
     - ここまでに処理忘れがないかどうか
     - page2の文字もきちんと正しく表示されるかどうか
 13. 問題がなければ、バックアップおよび `mp1mm16tir-page2.fnt` を削除し、以下のファイルだけを残して完成。
-        - `mp1mm16tir.fnt`
-        - `mp1mm16tir-page1.fnt`
-        - `mp1mm16tir-page1.png`
-        - `mp1mm16tir-page2.png`
+    - `mp1mm16tir.fnt`
+    - `mp1mm16tir-page1.fnt`
+    - `mp1mm16tir-page1.png`
+    - `mp1mm16tir-page2.png`
 
 
