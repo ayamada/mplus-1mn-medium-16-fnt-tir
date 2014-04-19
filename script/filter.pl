@@ -11,6 +11,12 @@ sub mapper {
 
   # PUT YOUR CODE HERE
 
+  #$data->{xadvance} = $data->{xadvance} - 3;
+  #$data->{xoffset} = $data->{xoffset} - 0;
+  #$data->{yoffset} = $data->{yoffset} - 4;
+
+  #$data->{page} = 1;
+
   #if ((1 <= $data->{height}) and ($data->{height} <= 16)) {
   #  $data->{y} = $data->{y} - 1;
   #  $data->{yoffset} = $data->{yoffset} - 1;
@@ -30,8 +36,8 @@ while (1) {
   my $line = <STDIN>;
   last if not defined $line;
   $line =~ s/\x{000d}?\x{000a}?\z//;
-  if ($line eq '') { print "\x{000d}\x{000a}"; next; }
-  if ($line !~ /^char /) { print "$line\x{000d}\x{000a}"; next; }
+  if ($line eq '') { print "\n"; next; }
+  if ($line !~ /^char /) { print "$line\n"; next; }
   my $data = {};
   foreach my $key (@CHAR_KEYS) {
     my ($num) = ($line =~ /\b${key}\=(\-?\d+)/);
@@ -45,6 +51,6 @@ while (1) {
     $line =~ s/\b${key}\=(\-?\d+)/${key}=${num}/;
   }
 
-  print "$line\x{000d}\x{000a}";
+  print "$line\n";
 }
 
