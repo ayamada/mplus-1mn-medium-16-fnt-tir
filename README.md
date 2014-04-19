@@ -17,7 +17,7 @@ A bitmap font contains japanese characters
 ## どんなフォント？
 
 - [M+ OUTLINE FONTS](http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index.html)の「M+ 1m medium」(TESTFLIGHT 058)をビットマップ化して生成しています。
-    - mp1mm16tirフォントのライセンスも「M+ 1m medium」と同じにしているので、
+    - 当フォントも「M+ 1m medium」フォントの[ライセンス](http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index.html#license)をそのまま適用しているので、
       極めて自由に利用する事ができます。
 
 - 半角8x16px、全角16x16px、行間2pxの等幅フォントです。
@@ -27,7 +27,7 @@ A bitmap font contains japanese characters
   各種のチューニングが行われている為、快適に日本語表示が可能です。
 
 - いわゆるJIS第一水準の範囲の文字全て、JIS第二水準の範囲の文字の大部分、
-  一部のUnicode絵文字を含んでいます。
+  一部のUnicode記号文字を含んでいます。
     - 詳細な範囲については後述します。
     - 半角カナは含んでいません。
 
@@ -42,7 +42,7 @@ A bitmap font contains japanese characters
       描画コストの軽減をしています。
 
 - 実際のフォントの見た目については、
-- [fnt/](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/tree/master/fnt)
+  [fnt/](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/tree/master/fnt)
   ディレクトリ内にある`*.png`を、普通に画像ビューアで開いて確認してください。
     - 背景透過で文字色が白なので、確認の際は背景を黒系にしてください。
       背景が白系だと見えません。
@@ -77,7 +77,7 @@ A bitmap font contains japanese characters
     - JIS第一水準の全て
     - JIS第二水準の内、Wikipedia本文データファイルより漢字別に出現カウントを行い、出現数が10カウント以上のもので、かつ「M+ 1m medium」に文字のあるもの
     - 一部のUnicode記号
-        - 現在のところはハート二種と`\`(半角の￥)のみ
+        - 現在のところはハート二種と「&#165;」(半角の￥)のみ
 
 - 以下の基準で、page1とpage2に分割しています。
     - page1
@@ -127,7 +127,7 @@ A bitmap font contains japanese characters
       それによっては対応します。
 
 - なんでフォントを1mnから1mに変更したの？
-    - 1mnは、 `\`(半角￥記号)の横棒が一本足りないのが気に入らなかったからです。
+    - 1mnは「&#165;」(半角￥記号)の横棒が一本足りないのが気に入らなかったからです。
       それ以外の字形については1mよりも1mnの方が良かったんですが。
 
 - フォントを1mnから1mに変更したんだから、リポジトリ名も変えた方がいいんじゃ？
@@ -183,7 +183,7 @@ A bitmap font contains japanese characters
     - テクスチャ内での文字間隔を以前よりも大きく取るようにする
     - テクスチャに含める文字の選択を、
       Wikipediaデータ内での出現頻度によって決定するようにする
-    - Unicode記号枠に `\` 165(`U+00A5`) を追加
+    - Unicode記号枠に「&#165;」165(`U+00A5`) を追加
     - 一時的に、「≠」の代わりに「‡」を表示させる
 
 - 0.0.2 : 2014/03/06
