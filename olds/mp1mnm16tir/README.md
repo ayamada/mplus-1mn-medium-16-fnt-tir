@@ -1,4 +1,4 @@
-<div align="center"><img src="https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/olds/mp1mnm16tir/ss.png" /></div>
+これは旧版です。
 
 
 # mplus-1mn-medium-16-fnt-tir
