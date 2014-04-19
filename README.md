@@ -62,7 +62,7 @@ A bitmap font contains japanese characters
 - page1版
     - [fnt/](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/tree/master/fnt) ディレクトリより、
       `mp1mm16tir-page1.fnt` `mp1mm16tir-page1.png`
-      の二のファイルをリソースに含め、
+      の二つのファイルをリソースに含め、
       ロードするフォントとして `mp1mm16tir-page1.fnt` を指定してください。
       また、このフォントのテクスチャにはLinearフィルタを指定してください。
     - 通常版とは違い、page2に含まれている文字を描画する事はできませんが、
