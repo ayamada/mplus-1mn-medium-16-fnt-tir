@@ -88,7 +88,7 @@ A bitmap font contains japanese characters
         - page1に含まれなかった、残り漢字全部
 
 - 実際に登録されている文字の詳細な一覧については、
-  [works/chars/](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/tree/master/works/chars)
+  [work/chars/](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/tree/master/work/chars)
   内の `page1.txt` および `page2.txt` にあります。
     - ただし、 `page2.txt` ファイルの方には、
       「M+ 1m medium」にまだ登録されていないJIS第二水準漢字も含まれています。
