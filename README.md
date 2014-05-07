@@ -53,6 +53,8 @@ A bitmap font contains japanese characters
 
 - [ss.png](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/ss.png)
     - ↑に置いてる奴。わざわざ開くまでもない。
+- [olds/mp1mnm16tir/ss.png](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/olds/mp1mnm16tir/ss.png)
+    - 旧版のもの(1mベースではなく1mnベースだが全角文字の字形は同じ)。アスキーアートも等幅用であれば普通に使える。
 - [ss_01.png](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/ss_01.png)
     - 倍率2倍ぐらい(大体32x32相当)に拡大した状態のandroid実機での例。Linearフィルタ適用とは言え、元が16x16とは思えないぐらいスムーズ。
 - [ss_02.png](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/ss_02.png)
