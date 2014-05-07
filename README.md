@@ -48,6 +48,16 @@ A bitmap font contains japanese characters
       背景が白系だと見えません。
 
 
+## スクリーンショット
+
+- [ss.png](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/ss.png)
+    - ↑に置いてる奴。わざわざ開くまでもない。
+- [ss_01.png](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/ss_01.png)
+    - 倍率2倍ぐらい(大体32x32相当)に拡大した状態のandroid実機での例。Linearフィルタ適用とは言え、元が16x16とは思えないぐらいスムーズ。
+- [ss_02.png](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/ss_02.png)
+    - 倍率4倍(64x64相当)での描画。さすがにアラが見えるが、元が16x16である事を考えればこんなものか。
+
+
 ## 使い方
 
 - 通常版
