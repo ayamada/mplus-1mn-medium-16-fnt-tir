@@ -40,6 +40,7 @@ A bitmap font contains japanese characters
     - Wikipedia本文データファイルより漢字別に出現カウントを行い、
       出現頻度の高いものをテクスチャ一枚目に集める事で、
       描画コストの軽減をしています。
+    - テクスチャ一枚目のみを利用する軽量構成にも対応しています。
 
 - 実際のフォントの見た目については、
   [fnt/](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/tree/master/fnt)
