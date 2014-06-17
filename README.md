@@ -37,7 +37,8 @@ A bitmap font contains japanese characters
     - filterはLinear推奨です。Nearestだとそれなりです。
 
 - 1024x1024のテクスチャ二枚構成になっています。
-    - Wikipedia本文データファイルより漢字別に出現カウントを行い、
+    - [チャドー](https://twitter.com/njdict_Chado)辞書ファイル /
+      Wikipedia本文データファイルより漢字別に出現頻度設定を行い、
       出現頻度の高いものをテクスチャ一枚目に集める事で、
       描画コストの軽減をしています。
     - テクスチャ一枚目のみを利用する軽量構成にも対応しています。
@@ -90,15 +91,17 @@ A bitmap font contains japanese characters
 
 - 以下の基準で文字を選抜しています。
     - JIS第一水準の全て
-    - JIS第二水準の内、Wikipedia本文データファイルより漢字別に出現カウントを行い、出現数が10カウント以上のもので、かつ「M+ 1m medium」に文字のあるもの
+    - JIS第二水準の内、チャドー/Wikipedia本文データファイルより漢字別に出現カウントを行い、出現数が10カウント以上のもので、かつ「M+ 1m medium」に文字のあるもの
     - 一部のUnicode記号
-        - 現在のところはハート二種と「&#165;」(半角の￥)のみ
+        - http://d.hatena.ne.jp/y-kawaz/20101112/1289554290 にある微妙な文字一式
+        - ハート二種
+        - 「&#165;」(半角の￥)
 
 - 以下の基準で、page1とpage2に分割しています。
     - page1
-        - Unicode記号類
+        - 上記Unicode記号類
         - JIS第一水準の内の、漢字を除外した残り全て
-        - 上記の選抜での全漢字の内、Wikipedia出現頻度8500カウント以上の2275文字
+        - 上記の選抜での全漢字の内、チャドー/Wikipedia出現頻度順で2275文字まで
     - page2
         - page1に含まれなかった、残り漢字全部
 
@@ -129,10 +132,13 @@ A bitmap font contains japanese characters
       より連絡ください。日本語でokです。
 
 - 各文字の優先度がWikipediaデータ内出現頻度って微妙じゃない？
-    - 自分もそう思います。
-      しかし手軽にスクレイピングできる、
-      ゲーム向きのまとまったテキストデータは他にはなさそうだったので、
-      現状はWikipediaデータを利用しています。
+    - 自分もそう思っていたので、1.1.0にて、
+      [チャドー](https://twitter.com/njdict_Chado)の辞書を
+      文字種出現頻度の集計対象に追加しました。
+        - これによって、いわゆる忍殺語に使われる漢字は
+          page1に優先で含まれるようになりました。コワイ！
+    - 他にも手軽にスクレイピングできる、
+      ゲーム向きのまとまったテキストデータをまだまだ探索しています。
       おすすめのデータソースがあれば教えてください。
 
 - あの漢字はpage2じゃなくpage1に入れてほしい
@@ -152,7 +158,7 @@ A bitmap font contains japanese characters
       forkによって別のリポジトリを作成する形にして、
       元のリポジトリのURLは残しておくつもりです(リンク切れにならないように)。
 
-- [migu](http://mix-mplus-ipa.sourceforge.jp/migu/)フォントはどう？
+- [Migu](http://mix-mplus-ipa.sourceforge.jp/migu/)フォントはどう？
     - フォントとしては非常に良好ですが、
       IPAフォントライセンスが付いてるので駄目です。
         - IPAフォントライセンスはライセンス文の表示義務があるので、
@@ -162,6 +168,10 @@ A bitmap font contains japanese characters
     - 自分用の生成手順メモが
       [devel.md](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/tree/master/devel.md)
       にあります。
+
+- フォント生成用の文字種ファイルを勝手に利用してもいい？
+    - どうぞ。「work/chars/」内にある「page1.txt」「page2.txt」あたりが比較的利用しやすいと思います。
+        - 「page1.txt」には一部、複数回出現している文字があるので、そこだけ気をつけてください。
 
 
 ## 既知の問題点
@@ -187,8 +197,18 @@ A bitmap font contains japanese characters
 - ゲームでよく使う、utf-8記号文字をもっと追加する予定
     - どれを入れるべきか検討中
 
+- 複数ページを扱えないライブラリの為に、もっとどうにかできないか考える
+    - 普通に2048x2048にしてしまえば問題はないが、領域がもったいない
+
 
 ## 更新履歴
+
+- 1.1.0 : 2014/06/18
+    - `njslyrdic_chado_1.0.0_20140510.zip` および
+      `jawiki-latest-pages-articles.xml.bz2 2014-Jun-08 07:48:31`
+      のデータを使い、優先順位テーブルを更新
+    - http://d.hatena.ne.jp/y-kawaz/20101112/1289554290 にある文字種をまとめて
+      Unicode記号枠として追加
 
 - 1.0.0 : 2014/04/20
     - ベースフォントを「M+ 1mn medium」から

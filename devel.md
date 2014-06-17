@@ -1,19 +1,68 @@
 このファイルには、自分用の生成手順を書きます。
 
 
+# 同梱スクリプトについて
+
+後述の各変換については、同じディレクトリ内にある `*.scm` を使う。要gosh。以下は概要。
+
+- char-tally.scm
+    - `cat hoge.txt | ./char-tally.scm > hoge.tsv` のように使う
+    - これを実行する事により、 `hoge.txt` に含まれる全文字種について、出現数でカウント後ソートした結果をtsv形式で出力する。
+    - 後述の `jawiki-chars.tsv` を生成する為のオプション(`+chado`)あり。
+
+- jawiki-tally.scm
+    - `cat kanji.chars | ./jawiki-tally.scm > kanji.tally` のように使う
+    - これを実行する事により、 `kanji.chars` に含まれる全文字種について、後述の `jawiki-chars.tsv` に記載されているカウント値順でソートした結果をtally形式(=tsv形式)で出力する(つまりチャドー/jawiki頻度順に文字がソートされる)。
+
+- tally2chars.scm
+    - `cat kanji.tally | ./tally2chars.scm > kanji.chars` のように使う
+    - これを実行する事により、tally形式(=tsv形式)のファイルから、文字種だけを取り出す。
+
+- extra-unicode.scm
+    - `./extra-unicode.scm > extra-utf8.chars` のように使う
+    - extra-unicode.scm 内部で保持しているunicode固有文字をutf-8として書き出す
+
+
+# jawiki-chars.tsvの生成
+
+ここでは、各文字種の評価基準データとなるjawiki-char.tsvの生成方法を解説する。
+
+`work/chars/` ディレクトリ内にて作業を行う事を想定している。
+
+- jawiki-char.tsvファイルは「文字」「カウント値」の二値を持つtsvファイル。カウント値が高い程優先順位が高い。
+
+まず事前に、チャドーおよびja-wikipediaのデータファイルを用意する。
+
+- チャドーは、 https://twitter.com/njdict_Chado にて配布されている物に含まれている中から「忍殺語辞書」内の「chado.csv」を取得し、 **文字コードをUTF-8に変換しておく** (オリジナルはShift_JISの為)。この際に、ファイル名は「chado.csv」のままにしておく事。
+- ja-wikipediaは http://dumps.wikimedia.org/jawiki/latest/ より「jawiki-latest-pages-articles.xml.bz2」を取得しておく(サイズが大きいので注意)。
+    - ※サイズに要注意。
+
+上記二つのファイルのあるディレクトリにて、 `bzcat jawiki-latest-pages-articles.xml.bz2 | ./char-tally.scm +chado > jawiki-chars.tsv` を実行する事で、 `jawiki-chars.tsv` が生成される。
+
+
 # 文字一覧ファイルの生成
 
 以下の手順で、 `work/chars/` 内にあるファイルを使い、
 最終的に`page1.txt` `page2.txt` を生成する。
 
-それぞれの変換については、同じディレクトリ内にある `*.scm` を使う。要gosh。
-
-(どれも `cat src.file | ./hoge.scm > new.file` みたいに使う)
-
 ~~~
-JIS第一水準の内、漢字以外の文字 ＋ 追加のUnicode記号類
+JIS第一水準の内、漢字以外の文字
 ↓
-page1-misc.chars (ソースファイル)
+jis1-misc.chars (ソースファイル)
+↓
+↓ 追加のUnicode記号類のコード表現
+↓ ↓
+↓ extra-unicode.scm (ソースファイル)
+↓ ↓
+↓ utf-8実体に変換
+↓ ./extra-unicode.scm > extra-utf8.chars
+↓ ↓
+↓ extra-utf8.chars
+↓ ↓
+二つのファイルを結合
+cat jis1-misc.chars extra-utf8.chars > page1-misc.chars
+↓
+page1-misc.chars
 ↓
 ↓ JIS第一水準の内、漢字のみを集めたもの
 ↓ ↓
@@ -23,40 +72,50 @@ page1-misc.chars (ソースファイル)
 ↓ ↓ ↓
 ↓ ↓ jis2.chars (ソースファイル)
 ↓ ↓ ↓
-↓ ↓ Wikipediaカウント順にソート
+↓ ↓ 漢字優先順位順にソート
+↓ ↓ cat jis2.chars | ./jawiki-tally.scm > jis2.tally
 ↓ ↓ ↓
 ↓ ↓ jis2.tally
 ↓ ↓ ↓
 ↓ ↓ ソート結果から、10カウント以上のもののみを残す
+↓ ↓ (vim等のエディタを使い、手で編集)
 ↓ ↓ ↓
 ↓ ↓ jis2-over10.tally
 ↓ ↓ ↓
 ↓ ↓ カウント情報を削除し文字だけにする
+↓ ↓ cat jis2-over10.tally | ./tally2chars.scm > jis2-over10.chars
 ↓ ↓ ↓
 ↓ ↓ jis2-over10.chars
 ↓ ↓ ↓
 ↓ 二つのファイルを結合する
+↓ cat jis1-kanji.chars jis2-over10.chars > kanji.chars
 ↓ ↓
 ↓ kanji.chars
 ↓ ↓
-↓ Wikipediaカウント順にソート
+↓ 漢字優先順位順にソート
+↓ cat kanji.chars | ./jawiki-tally.scm > kanji.tally
 ↓ ↓
 ↓ kanji.tally
 ↓ ↓
-↓ 8500カウント以上と、その残りの、二つに分割する
+↓ 上位2275文字と、その残りの、二つに分割する
 ↓ (ここが1024x1024に収まるギリギリのライン)
+↓ (vim等のエディタを使い、手で分割)
 ↓ ↓                 ↓
 ↓ kanji-major.tally  kanji-minor.tally
 ↓ ↓                 ↓
 ↓ カウント情報を削除し文字だけにする
+↓ cat kanji-major.tally | ./tally2chars.scm > kanji-major.chars
+↓ cat kanji-minor.tally | ./tally2chars.scm > kanji-minor.chars
 ↓ ↓                 ↓
 ↓ kanji-major.chars  kanji-minor.chars
 ↓ ↓                 ↓
 ↓ ↓                 ページ2はこれで完成
+↓ ↓                 cat kanji-minor.chars > page2.txt
 ↓ ↓                 ↓
 ↓ ↓                 page2.txt
 ↓ ↓
 二つのファイルを結合して、ページ1も完成
+cat page1-misc.chars kanji-major.chars > page1.txt
 ↓
 page1.txt
 ~~~

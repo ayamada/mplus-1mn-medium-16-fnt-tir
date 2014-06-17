@@ -8,13 +8,13 @@
 (define (reset-tally!)
   (hash-table-clear! *tally*))
 
-(define (tally-charlist!)
+(define (tally-charlist! score)
   (let1 char (read-char)
     (unless (eof-object? char)
       ;(write-char char)
       ;(newline)
-      (hash-table-update! *tally* char (cut + 1 <>) 0)
-      (tally-charlist!))))
+      (hash-table-update! *tally* char (cut + score <>) 0)
+      (tally-charlist! score))))
 
 (define (display-result!)
   (for-each
@@ -31,7 +31,12 @@
 
 (define (main args)
   (reset-tally!)
-  (tally-charlist!)
+  (tally-charlist! 1)
+  (when (find (cut equal? <> "+chado") args)
+    (with-input-from-file
+      "./chado.csv"
+      (lambda ()
+        (tally-charlist! 10000))))
   (display-result!))
 
 
