@@ -6,6 +6,13 @@
 A bitmap font contains japanese characters
 
 
+## News
+
+- 2014/06/18 : 1.1.0 をリリースしました。
+
+- 2014/06/18 : 実験的に、[Unity向けパッケージ](#unitypackage)を作成しました。
+
+
 ## これは何？
 
 - 一部のゲーム系ライブラリ/エンジンで採用されている、
@@ -123,6 +130,8 @@ A bitmap font contains japanese characters
   もし問題があれば、
   [Issues](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/issues)
   にてフィードバックをいただけるとありがたいです。
+    - 実験的に、Unity向けパッケージ二種を用意しました。
+      詳細は[UnityPackage](#unitypackage)の項目を確認してください。
 
 
 ## FAQ
@@ -135,7 +144,7 @@ A bitmap font contains japanese characters
     - 自分もそう思っていたので、1.1.0にて、
       [チャドー](https://twitter.com/njdict_Chado)の辞書を
       文字種出現頻度の集計対象に追加しました。
-        - これによって、いわゆる忍殺語に使われる漢字は
+        - これにより、いわゆる忍殺語に使われる漢字は
           page1に優先で含まれるようになりました。コワイ！
         - 具体的には「刎ねる」等が該当。
     - 他にも手軽にスクレイピングできる、
@@ -165,10 +174,19 @@ A bitmap font contains japanese characters
         - IPAフォントライセンスはライセンス文の表示義務があるので、
           ゲームへの組み込み用途には色々と面倒です。
 
+- ○○というフォントの出来が良いので、同様の手順でビットマップ化してほしい
+    - ライセンスがゆるく、ayamadaが気に入れば、
+      対応するかもしれません(しないかもしれません)。
+    - とりあえず、
+      [Issues](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/issues)
+      に連絡ください。
+    - もしくは、後述の生成手順を見て自分で生成してみてください
+      (ただし自分用メモにつき解読困難)。
+
 - 実際の生成手順を教えてほしい
     - 自分用の生成手順メモが
       [devel.md](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/tree/master/devel.md)
-      にあります。
+      にあります。分かりにくいです。
 
 - フォント生成用の文字種ファイルを勝手に利用してもいい？
     - どうぞ。「work/chars/」内にある「page1.txt」「page2.txt」あたりが比較的利用しやすいと思います。
@@ -192,14 +210,50 @@ A bitmap font contains japanese characters
       一番形が似ている「‡」を表示させておく事にしました。
       これが、「≠」が「‡」になっている事の理由です。
 
+- 「&#165;」(半角￥)を表示したいのに、バックスラッシュが表示される
+    - Unicodeの仕様です。
+      半角￥を表示したい時は、コード表記で165(`U+00A5`)を出力してください。
+      半角にこだわらなくていい場合であれば、全角￥を使うのがよいでしょう。
+
+
+## UnityPackage
+
+実験的に、Unity向けパッケージを作成しました。
+
+- 現在はpage1版のみです(つまりpage2漢字は表示できません)。通常版は将来対応予定(つまり未定)です。
+- まだ実験段階の為、バージョン上げをさぼる可能性が高いです。
+
+ダウンロード
+
+- [mp1mm16tir-page1-1.1.0-ngui.unitypackage](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/work/alpha/mp1mm16tir-page1-1.1.0-ngui.unitypackage)
+    - NGUI向けフォント版です。無償利用可能なNGUI旧版にて、フォント生成と動作確認を行っています。
+- [mp1mm16tir-page1-1.1.0-gui.unitypackage](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/work/alpha/mp1mm16tir-page1-1.1.0-gui.unitypackage)
+    - Unity標準のGUIフォント版です。変換には[ChrRectSet](https://github.com/mieki256/ChrRectSet)を利用させていただきました。
+
 
 ## TODO
 
 - ゲームでよく使う、utf-8記号文字をもっと追加する予定
     - どれを入れるべきか検討中
 
-- 複数ページを扱えないライブラリの為に、もっとどうにかできないか考える
-    - 普通に2048x2048にしてしまえば問題はないが、領域がもったいない
+- 複数ページを扱えないライブラリ(Unity系)の為に、どうにかできないか考える
+    - テクスチャサイズを1024x2048にしてしまう
+        - パフォーマンスが落ちるので、可能ならpower-of-two制約は維持したい
+          (ほとんどのケースで、アトラス化せずに使う事になる為)
+    - テクスチャサイズを2048x2048にしてしまう
+        - 動作上の問題はないが、領域がもったいない
+          (50%以上のテクスチャ領域が無駄になる)
+    - テクスチャサイズを2048x2048にした上で文字サイズを16pxじゃなく20pxにし、
+      領域を有効活用する
+        - サイズが大きくなるのは望ましくない。
+          せっかくDistance field処理で拡大縮小しても綺麗になっているので、
+          この16pxを20pxに変更しても、そこまでの効果が出ない。
+    - テクスチャサイズを1024x1024のまま、文字サイズを10-12pxにし、
+      領域を有効活用する
+        - Distance field処理をしているとは言え、
+          10-12pxにまで小さくするとさすがに劣化が激しいので、これは避けたい。
+          16px前後が一番コストパフォーマンスが良いように思える。
+    - 他には？
 
 
 ## 更新履歴
