@@ -148,7 +148,7 @@ A bitmap font contains japanese characters
           page1に優先で含まれるようになりました。Wasshoi!
     - 他にも手軽にスクレイピングできる、
       ゲーム向きのまとまったテキストデータをまだまだ探索しています。
-      おすすめのデータソースがあれば、issueの「[文字種優先順位を決定する為のテキストデータソースの探索](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/issues/1)」スレで教えてください。
+      おすすめのデータソースがあれば、issueの「[文字種優先順位を決定する為のテキストデータソースの探索](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/issues/1)」スレにて教えてください。
 
 - あの漢字はpage2じゃなくpage1に入れてほしい
     - 文字数が膨大で一個ずつは管理しきれない為、個別対応は諦めてください。
