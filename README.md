@@ -145,10 +145,10 @@ A bitmap font contains japanese characters
       [チャドー](https://twitter.com/njdict_Chado)の辞書を
       文字種出現頻度の集計対象に追加しました。
         - これにより、いわゆる忍殺語に使われる漢字は
-          page1に優先で含まれるようになりました。コワイ！
+          page1に優先で含まれるようになりました。Wasshoi!
     - 他にも手軽にスクレイピングできる、
       ゲーム向きのまとまったテキストデータをまだまだ探索しています。
-      おすすめのデータソースがあれば教えてください。
+      おすすめのデータソースがあれば、issueの「[文字種優先順位を決定する為のテキストデータソースの探索](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/issues/1)」スレで教えてください。
 
 - あの漢字はpage2じゃなくpage1に入れてほしい
     - 文字数が膨大で一個ずつは管理しきれない為、個別対応は諦めてください。
@@ -176,9 +176,7 @@ A bitmap font contains japanese characters
 - ○○というフォントの出来が良いので、同様の手順でビットマップ化してほしい
     - ライセンスがゆるく、ayamadaが気に入れば、
       対応するかもしれません(しないかもしれません)。
-    - とりあえず、
-      [Issues](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/issues)
-      に連絡ください。
+    - とりあえず、issueの「[汎用的に利用できるフォントの探索](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/issues/2)」スレにて教えてもらえるとうれしいです。
     - もしくは、後述の生成手順を見て自分で生成してみてください
       (ただし自分用メモにつき解読困難)。
 
