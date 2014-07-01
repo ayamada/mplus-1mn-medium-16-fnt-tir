@@ -33,10 +33,21 @@
   (reset-tally!)
   (tally-charlist! 1)
   (when (find (cut equal? <> "+chado") args)
-    (with-input-from-file
-      "./chado.csv"
-      (lambda ()
-        (tally-charlist! 10000))))
+    (let1 chado-chars (with-input-from-file
+                        "./chado.csv"
+                        (lambda ()
+                          (let1 table (make-hash-table 'equal?)
+                            (let loop ()
+                              (let1 c (read-char)
+                                (if (eof-object? c)
+                                  (list->string (hash-table-keys table))
+                                  (begin
+                                    (hash-table-put! table c #t)
+                                    (loop))))))))
+      (with-input-from-string
+        chado-chars
+        (lambda ()
+          (tally-charlist! 10000)))))
   (display-result!))
 
 
