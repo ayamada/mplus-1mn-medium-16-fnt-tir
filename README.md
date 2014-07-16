@@ -8,9 +8,9 @@ A bitmap font contains japanese characters
 
 ## News
 
-- 2014/06/18 : 1.1.0 をリリースしました。
+- 2014/07/16 : [Unity向けパッケージ](#unitypackage)を更新しました。
 
-- 2014/06/18 : 実験的に、[Unity向けパッケージ](#unitypackage)を作成しました。
+- 2014/06/18 : 1.1.0 をリリースしました。
 
 
 ## これは何？
@@ -226,7 +226,7 @@ A bitmap font contains japanese characters
     - NGUI向けフォント版です。無償利用可能なNGUI旧版にて、フォント生成と動作確認を行っています。
 - [mp1mm16tir-page1-1.1.0-gui.unitypackage](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/raw/master/work/alpha/mp1mm16tir-page1-1.1.0-gui.unitypackage)
     - Unity標準のGUIフォント版です。変換には[ChrRectSet](https://github.com/mieki256/ChrRectSet)を利用させていただきました。
-    - どうもLineHeightの設定がおかしいらしく、テキスト内の改行にて、次の行に行かずに重なって表示されてしまう問題があります。
+    - 2014/07/16更新: LineSpacingが適切に設定されていなかったのを修正しました。
 
 
 ## TODO
