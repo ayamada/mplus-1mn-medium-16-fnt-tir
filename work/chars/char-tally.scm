@@ -46,6 +46,19 @@
                 (hash-table-put! table c #t)
                 (loop)))))))))
 
+;; ホワイトリスト登録候補メモ:
+;; とりあえずjis2の100カウント以下を調査
+;; - 蜊(あさり): wikipediaカウント48
+;; - 忸怩(じくじ): wikipediaカウント56,56
+;; - 鱚(キス): wikipediaカウント56
+;; - 馘(クビ): wikipediaカウント80
+;; - 鼾(いびき): wikipediaカウント84
+;; - 塒(ねぐら): wikipediaカウント86
+;; - 毟(むし(る)): wikipediaカウント88
+;; - 鮟鱇(アンコウ): wikipediaカウント100,91
+;; - 艶(つや/つや(やか)/あで(やか)): wikipediaカウント102
+;; - 竦(すく(む)): wikipediaカウント103
+
 (define (get-whitelist-chars)
   ;; TODO
   "")
