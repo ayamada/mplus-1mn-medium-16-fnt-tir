@@ -29,25 +29,53 @@
           (print val))))
     (reverse (sort-by (hash-table->alist *tally*) cdr))))
 
+(define (args-has? args key)
+  (find (cut equal? <> "+chado") args))
+
+(define (get-chado-chars)
+  (with-input-from-file
+    "./chado.csv"
+    (lambda ()
+      ;; TODO: flatten処理の外出し
+      (let1 table (make-hash-table 'equal?)
+        (let loop ()
+          (let1 c (read-char)
+            (if (eof-object? c)
+              (list->string (hash-table-keys table))
+              (begin
+                (hash-table-put! table c #t)
+                (loop)))))))))
+
+(define (get-whitelist-chars)
+  ;; TODO
+  "")
+
+(define (get-blacklist-chars)
+  ;; TODO
+  "")
+
 (define (main args)
   (reset-tally!)
+  ;; wikipedia
   (tally-charlist! 1)
-  (when (find (cut equal? <> "+chado") args)
-    (let1 chado-chars (with-input-from-file
-                        "./chado.csv"
-                        (lambda ()
-                          (let1 table (make-hash-table 'equal?)
-                            (let loop ()
-                              (let1 c (read-char)
-                                (if (eof-object? c)
-                                  (list->string (hash-table-keys table))
-                                  (begin
-                                    (hash-table-put! table c #t)
-                                    (loop))))))))
-      (with-input-from-string
-        chado-chars
-        (lambda ()
-          (tally-charlist! 10000)))))
+  ;; chado
+  (when (args-has? args "+chado")
+    (with-input-from-string
+      (get-chado-chars)
+      (lambda ()
+        (tally-charlist! 10000))))
+  ;; user's whitelist
+  (when (args-has? args "+whitelist")
+    (with-input-from-string
+      (get-whitelist-chars)
+      (lambda ()
+        (tally-charlist! 20000))))
+  ;; user's blacklist
+  (when (args-has? args "+blacklist")
+    (with-input-from-string
+      (get-blacklist-chars)
+      (lambda ()
+        (tally-charlist! -1000000))))
   (display-result!))
 
 
