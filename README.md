@@ -8,6 +8,8 @@ A bitmap font contains japanese characters
 
 ## News
 
+- 2014/07/21 : [mp1mm24tir](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/tree/master/work/alpha/mp1mm24tir/note.md)を試作しました。
+
 - 2014/07/16 : [Unity向けパッケージ](#unitypackage)を更新しました。
 
 - 2014/06/18 : 1.1.0 をリリースしました。
@@ -290,7 +292,10 @@ A bitmap font contains japanese characters
     - 「壺」追加
 
 
-## 旧版
+## バリエーション
+
+- [mp1mm24tir](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/tree/master/work/alpha/mp1mm24tir/note.md)
+    - フォントサイズを24pxにしたもの。まだプロトタイプ。
 
 - [mp1mnm16tir](https://github.com/ayamada/mplus-1mn-medium-16-fnt-tir/tree/master/olds/mp1mnm16tir)
     - 「M+ 1mn medium」ベースの旧版フォント。1024x1024一枚のテクスチャにJIS第一水準全部を無理矢理詰め込んでいる。

@@ -204,6 +204,8 @@ cat page1-misc.chars kanji.chars > result.txt
     - lineHeightは文字高さ＋行間。baseは文字高さ(漢字基準)。
 3.  (※page1のみ) char id=77 の「M」のエントリをチェック。height値が文字高さである16に完全一致している事を確認する
     - レンダリングエンジンにもよるが、「M」のheight値が一行だけの時の高さとして採用されるので、これが一致していないとbounds判定がおかしくなる。
+    - 一致していない場合はheight, y, yoffsetをいじって合わせる事。
+        - Mのheightを増やさなくてはならない場合、その変動量の半分ずつyとyoffsetを減らす(つまり元の状態から、Mの上下の空白領域を多めにコピーさせるようにして調整している)。変動量が奇数で割り切れない場合は小数切り捨てで両方合わせればよい。
 4.  (※page1のみ) char id=12288の全角空白のエントリを追加し、chars countの値を1増やす。エントリ内容は以下をコピペ。
     - `char id=12288   x=0     y=0     width=0     height=0     xoffset=0     yoffset=0    xadvance=19     page=0  chnl=0 `
 5.  (※page2のみ) char id=32を除去し、chars countの値を1減らす
